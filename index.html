@@ -1,0 +1,1728 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ponto & Trama | Aviamentos, Armarinho e Inspiração Criativa</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,800;1,600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        :root {
+            --primary-magenta: #E60067;
+            --primary-magenta-hover: #C40057;
+            --accent-turquoise: #00B8D4;
+            --accent-yellow: #FFB300;
+            --accent-purple: #7C4DFF;
+            --dark-heading: #1E1B2E;
+            --dark-body: #4A455E;
+            --light-bg: #FAF8FC;
+            --white: #FFFFFF;
+            --border-color: #E2DDF0;
+            --shadow-sm: 0 4px 12px rgba(230, 0, 103, 0.06);
+            --shadow-md: 0 8px 24px rgba(30, 27, 46, 0.08);
+            --shadow-lg: 0 16px 32px rgba(230, 0, 103, 0.15);
+            --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+            --radius-sm: 12px;
+            --radius-md: 20px;
+            --radius-lg: 32px;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            font-size: 16px;
+        }
+
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            color: var(--dark-body);
+            background-color: var(--light-bg);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            color: var(--dark-heading);
+            font-weight: 700;
+            line-height: 1.2;
+        }
+
+        .serif-title {
+            font-family: 'Playfair Display', serif;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: var(--transition);
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1240px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        .section-padding {
+            padding: 96px 0;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            padding: 16px 32px;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 1rem;
+            cursor: pointer;
+            border: none;
+            transition: var(--transition);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--primary-magenta), #FF2A85);
+            color: var(--white);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(230, 0, 103, 0.4);
+        }
+
+        .btn-secondary {
+            background-color: var(--white);
+            color: var(--primary-magenta);
+            border: 2px solid var(--primary-magenta);
+        }
+
+        .btn-secondary:hover {
+            background-color: var(--primary-magenta);
+            color: var(--white);
+            transform: translateY(-3px);
+        }
+
+        .section-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 6px 16px;
+            background-color: rgba(230, 0, 103, 0.1);
+            color: var(--primary-magenta);
+            border-radius: 50px;
+            font-size: 0.875rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 16px;
+        }
+
+        .section-header {
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto 50px;
+        }
+
+        .section-header h2 {
+            font-size: 2.5rem;
+            margin-bottom: 16px;
+        }
+
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            transition: var(--transition);
+            background-color: rgba(255, 255, 255, 0.92);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(226, 221, 240, 0.6);
+        }
+
+        .header.scrolled {
+            box-shadow: var(--shadow-md);
+            background-color: rgba(255, 255, 255, 0.98);
+        }
+
+        .header-container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 90px;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--dark-heading);
+        }
+
+        .logo-icon {
+            width: 44px;
+            height: 44px;
+            background: linear-gradient(135deg, var(--primary-magenta), var(--accent-purple));
+            color: var(--white);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.25rem;
+            box-shadow: 0 4px 12px rgba(230, 0, 103, 0.3);
+        }
+
+        .logo span {
+            color: var(--primary-magenta);
+        }
+
+        .nav-menu {
+            display: flex;
+            align-items: center;
+            gap: 32px;
+        }
+
+        .nav-link {
+            font-weight: 600;
+            color: var(--dark-heading);
+            position: relative;
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -6px;
+            left: 0;
+            width: 0;
+            height: 3px;
+            background-color: var(--primary-magenta);
+            border-radius: 3px;
+            transition: var(--transition);
+        }
+
+        .nav-link:hover::after,
+        .nav-link.active::after {
+            width: 100%;
+        }
+
+        .mobile-toggle {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            color: var(--dark-heading);
+            cursor: pointer;
+        }
+
+        .hero {
+            padding-top: 170px;
+            padding-bottom: 90px;
+            position: relative;
+            background: radial-gradient(circle at 90% 10%, rgba(255, 179, 0, 0.15) 0%, transparent 40%),
+                        radial-gradient(circle at 10% 90%, rgba(0, 184, 212, 0.15) 0%, transparent 40%),
+                        linear-gradient(180deg, #FFFFFF 0%, #FAF8FC 100%);
+            overflow: hidden;
+        }
+
+        .hero-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .hero-content h1 {
+            font-size: 3.5rem;
+            margin-bottom: 24px;
+            letter-spacing: -1px;
+        }
+
+        .hero-content h1 span {
+            color: var(--primary-magenta);
+        }
+
+        .hero-content p {
+            font-size: 1.25rem;
+            color: var(--dark-body);
+            margin-bottom: 36px;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 16px;
+            flex-wrap: wrap;
+        }
+
+        .hero-stats {
+            display: flex;
+            gap: 40px;
+            margin-top: 48px;
+            padding-top: 32px;
+            border-top: 1px solid var(--border-color);
+        }
+
+        .stat-item h4 {
+            font-size: 2rem;
+            color: var(--primary-magenta);
+        }
+
+        .stat-item p {
+            font-size: 0.875rem;
+            color: var(--dark-body);
+            font-weight: 600;
+        }
+
+        .hero-visual {
+            position: relative;
+        }
+
+        .svg-banner-box {
+            width: 100%;
+            height: 460px;
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            box-shadow: var(--shadow-lg);
+            background: #2D1B4E;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: var(--transition);
+        }
+
+        .svg-banner-box:hover {
+            transform: scale(1.01);
+        }
+
+        .floating-card {
+            position: absolute;
+            background: var(--white);
+            padding: 16px 24px;
+            border-radius: var(--radius-md);
+            box-shadow: var(--shadow-md);
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            z-index: 10;
+            animation: float 4s ease-in-out infinite;
+        }
+
+        .floating-card-1 {
+            top: 30px;
+            left: -30px;
+        }
+
+        .floating-card-2 {
+            bottom: 30px;
+            right: -20px;
+            animation-delay: 2s;
+        }
+
+        .floating-icon {
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.25rem;
+            color: var(--white);
+        }
+
+        .floating-card-1 .floating-icon { background-color: var(--accent-turquoise); }
+        .floating-card-2 .floating-icon { background-color: var(--accent-yellow); color: var(--dark-heading); }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-12px); }
+        }
+
+        .about {
+            background-color: var(--white);
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .about-svg-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+        }
+
+        .about-svg-card {
+            border-radius: var(--radius-md);
+            overflow: hidden;
+            box-shadow: var(--shadow-sm);
+            background: #F4F1F8;
+            transition: var(--transition);
+        }
+
+        .about-svg-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .about-features {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+            margin: 32px 0;
+        }
+
+        .feature-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 16px;
+        }
+
+        .feature-icon {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            background-color: rgba(0, 184, 212, 0.15);
+            color: var(--accent-turquoise);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            margin-top: 4px;
+        }
+
+        .search-container {
+            max-width: 500px;
+            margin: 0 auto 30px;
+            position: relative;
+        }
+
+        .search-input {
+            width: 100%;
+            padding: 14px 20px 14px 48px;
+            border-radius: 50px;
+            border: 2px solid var(--border-color);
+            font-size: 1rem;
+            outline: none;
+            transition: var(--transition);
+        }
+
+        .search-input:focus {
+            border-color: var(--primary-magenta);
+            box-shadow: 0 0 0 4px rgba(230, 0, 103, 0.1);
+        }
+
+        .search-icon {
+            position: absolute;
+            left: 18px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--dark-body);
+            font-size: 1.1rem;
+        }
+
+        .categories-filter {
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+            flex-wrap: wrap;
+            margin-bottom: 40px;
+        }
+
+        .filter-btn {
+            padding: 10px 24px;
+            border-radius: 50px;
+            background-color: var(--white);
+            border: 1px solid var(--border-color);
+            color: var(--dark-body);
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .filter-btn:hover,
+        .filter-btn.active {
+            background-color: var(--primary-magenta);
+            color: var(--white);
+            border-color: var(--primary-magenta);
+            box-shadow: 0 4px 12px rgba(230, 0, 103, 0.25);
+        }
+
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 30px;
+        }
+
+        .product-card {
+            background-color: var(--white);
+            border-radius: var(--radius-md);
+            overflow: hidden;
+            box-shadow: var(--shadow-sm);
+            transition: var(--transition);
+            border: 1px solid rgba(226, 221, 240, 0.5);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .product-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .product-svg-header {
+            position: relative;
+            height: 220px;
+            background-color: #FAF8FC;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        .product-tag {
+            position: absolute;
+            top: 16px;
+            left: 16px;
+            background: rgba(255, 255, 255, 0.92);
+            backdrop-filter: blur(4px);
+            padding: 4px 12px;
+            border-radius: 50px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            color: var(--dark-heading);
+            z-index: 2;
+        }
+
+        .product-info {
+            padding: 24px;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+        }
+
+        .product-category {
+            font-size: 0.875rem;
+            color: var(--primary-magenta);
+            font-weight: 600;
+            margin-bottom: 6px;
+        }
+
+        .product-title {
+            font-size: 1.25rem;
+            margin-bottom: 12px;
+        }
+
+        .product-desc {
+            font-size: 0.9rem;
+            color: var(--dark-body);
+            margin-bottom: 20px;
+            flex-grow: 1;
+        }
+
+        .product-footer {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding-top: 16px;
+            border-top: 1px solid var(--border-color);
+        }
+
+        .product-price {
+            font-weight: 800;
+            font-size: 1.25rem;
+            color: var(--dark-heading);
+        }
+
+        .add-btn {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: rgba(230, 0, 103, 0.1);
+            color: var(--primary-magenta);
+            border: none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .add-btn:hover {
+            background-color: var(--primary-magenta);
+            color: var(--white);
+        }
+
+        .services {
+            background: linear-gradient(135deg, #1E1B2E 0%, #2D2744 100%);
+            color: var(--white);
+            position: relative;
+        }
+
+        .services .section-header h2,
+        .services .section-header p {
+            color: var(--white);
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .service-card {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 40px 32px;
+            border-radius: var(--radius-md);
+            transition: var(--transition);
+            backdrop-filter: blur(10px);
+        }
+
+        .service-card:hover {
+            transform: translateY(-8px);
+            background: rgba(255, 255, 255, 0.08);
+            border-color: var(--accent-turquoise);
+        }
+
+        .service-icon {
+            width: 64px;
+            height: 64px;
+            border-radius: var(--radius-sm);
+            background: linear-gradient(135deg, var(--primary-magenta), var(--accent-purple));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.75rem;
+            color: var(--white);
+            margin-bottom: 24px;
+        }
+
+        .service-card:nth-child(2) .service-icon {
+            background: linear-gradient(135deg, var(--accent-turquoise), #00E5FF);
+            color: var(--dark-heading);
+        }
+
+        .service-card:nth-child(3) .service-icon {
+            background: linear-gradient(135deg, var(--accent-yellow), #FFD54F);
+            color: var(--dark-heading);
+        }
+
+        .service-title {
+            color: var(--white);
+            font-size: 1.5rem;
+            margin-bottom: 12px;
+        }
+
+        .service-card p {
+            color: #A39EB8;
+            font-size: 0.95rem;
+        }
+
+        .blog-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 30px;
+        }
+
+        .blog-card {
+            background-color: var(--white);
+            border-radius: var(--radius-md);
+            overflow: hidden;
+            box-shadow: var(--shadow-sm);
+            transition: var(--transition);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .blog-card:hover {
+            transform: translateY(-6px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .blog-svg-wrapper {
+            height: 180px;
+            background: #2D1B4E;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .blog-content {
+            padding: 28px;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .blog-date {
+            font-size: 0.85rem;
+            color: var(--accent-turquoise);
+            font-weight: 700;
+            margin-bottom: 8px;
+            text-transform: uppercase;
+        }
+
+        .blog-title {
+            font-size: 1.25rem;
+            margin-bottom: 12px;
+        }
+
+        .blog-excerpt {
+            color: var(--dark-body);
+            font-size: 0.95rem;
+            margin-bottom: 20px;
+            flex-grow: 1;
+        }
+
+        .read-more {
+            color: var(--primary-magenta);
+            font-weight: 700;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            cursor: pointer;
+        }
+
+        .contact {
+            background-color: var(--white);
+        }
+
+        .contact-box {
+            background: linear-gradient(135deg, #FAF8FC 0%, #F0EBF8 100%);
+            border-radius: var(--radius-lg);
+            padding: 60px;
+            box-shadow: var(--shadow-sm);
+            border: 1px solid var(--border-color);
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1.2fr;
+            gap: 60px;
+        }
+
+        .contact-details {
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+            margin-top: 32px;
+        }
+
+        .contact-detail-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 16px;
+        }
+
+        .contact-detail-icon {
+            width: 44px;
+            height: 44px;
+            border-radius: 12px;
+            background-color: var(--primary-magenta);
+            color: var(--white);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.1rem;
+            flex-shrink: 0;
+        }
+
+        .contact-form {
+            background-color: var(--white);
+            padding: 40px;
+            border-radius: var(--radius-md);
+            box-shadow: var(--shadow-md);
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            font-weight: 600;
+            margin-bottom: 8px;
+            color: var(--dark-heading);
+            font-size: 0.9rem;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 14px 18px;
+            border-radius: 10px;
+            border: 1px solid var(--border-color);
+            font-family: inherit;
+            font-size: 0.95rem;
+            transition: var(--transition);
+            background-color: #FAF8FC;
+        }
+
+        .form-control:focus {
+            outline: none;
+            border-color: var(--primary-magenta);
+            background-color: var(--white);
+            box-shadow: 0 0 0 4px rgba(230, 0, 103, 0.1);
+        }
+
+        textarea.form-control {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        .footer {
+            background-color: #151322;
+            color: #A39EB8;
+            padding-top: 80px;
+            padding-bottom: 40px;
+            font-size: 0.95rem;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1.5fr;
+            gap: 40px;
+            margin-bottom: 60px;
+        }
+
+        .footer-about .logo {
+            color: var(--white);
+            margin-bottom: 20px;
+        }
+
+        .footer-about p {
+            margin-bottom: 24px;
+            line-height: 1.7;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 12px;
+        }
+
+        .social-link {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.08);
+            color: var(--white);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: var(--transition);
+        }
+
+        .social-link:hover {
+            background-color: var(--primary-magenta);
+            transform: translateY(-3px);
+        }
+
+        .footer-title {
+            color: var(--white);
+            font-size: 1.15rem;
+            margin-bottom: 24px;
+        }
+
+        .footer-links {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .footer-links a:hover {
+            color: var(--primary-magenta);
+            padding-left: 4px;
+        }
+
+        .footer-bottom {
+            padding-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.08);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(30, 27, 46, 0.7);
+            backdrop-filter: blur(5px);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 2000;
+            opacity: 0;
+            visibility: hidden;
+            transition: var(--transition);
+        }
+
+        .modal-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .modal-content {
+            background-color: var(--white);
+            padding: 40px;
+            border-radius: var(--radius-md);
+            max-width: 480px;
+            width: 90%;
+            text-align: center;
+            transform: scale(0.8);
+            transition: var(--transition);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .modal-overlay.active .modal-content {
+            transform: scale(1);
+        }
+
+        .modal-icon {
+            width: 70px;
+            height: 70px;
+            background-color: rgba(0, 184, 212, 0.15);
+            color: var(--accent-turquoise);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            margin: 0 auto 20px;
+        }
+
+        @media (max-width: 992px) {
+            .hero-grid, .about-grid, .contact-grid {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+
+            .hero-content h1 {
+                font-size: 2.75rem;
+            }
+
+            .footer-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .contact-box {
+                padding: 32px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .header-container {
+                height: 70px;
+            }
+
+            .mobile-toggle {
+                display: block;
+            }
+
+            .nav-menu {
+                position: fixed;
+                top: 70px;
+                left: -100%;
+                width: 100%;
+                height: calc(100vh - 70px);
+                background-color: var(--white);
+                flex-direction: column;
+                justify-content: center;
+                gap: 28px;
+                transition: var(--transition);
+                box-shadow: var(--shadow-md);
+            }
+
+            .nav-menu.active {
+                left: 0;
+            }
+
+            .nav-link {
+                font-size: 1.25rem;
+            }
+
+            .hero {
+                padding-top: 120px;
+            }
+
+            .section-header h2 {
+                font-size: 2rem;
+            }
+
+            .floating-card {
+                display: none;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-bottom {
+                flex-direction: column;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header class="header" id="header">
+        <div class="container header-container">
+            <a href="#" class="logo">
+                <div class="logo-icon">
+                    <i class="fa-solid fa-scissors"></i>
+                </div>
+                Ponto <span>& Trama</span>
+            </a>
+
+            <nav>
+                <ul class="nav-menu" id="nav-menu">
+                    <li><a href="#inicio" class="nav-link active">Início</a></li>
+                    <li><a href="#sobre" class="nav-link">Sobre Nós</a></li>
+                    <li><a href="#produtos" class="nav-link">Produtos</a></li>
+                    <li><a href="#diferenciais" class="nav-link">Diferenciais</a></li>
+                    <li><a href="#dicas" class="nav-link">Dicas & Blog</a></li>
+                    <li><a href="#contato" class="nav-link">Contato</a></li>
+                </ul>
+            </nav>
+
+            <div class="nav-actions">
+                
+                <button class="mobile-toggle" id="mobile-toggle" aria-label="Abrir Menu">
+                    <i class="fa-solid fa-bars"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <section class="hero" id="inicio">
+        <div class="container hero-grid">
+            <div class="hero-content">
+                <div class="section-badge">
+                    <i class="fa-solid fa-sparkles"></i> Armarinho & Aviamentos Premium
+                </div>
+                <h1 class="serif-title">Cores, texturas e <span>detalhes</span> que dão vida às suas criações.</h1>
+                <p>Oferecemos o maior catálogo de aviamentos, linhas, fitas e acessórios para costura, estilistas e artesãos com entrega rápida em todo o país.</p>
+                
+                <div class="hero-buttons">
+                    <a href="#produtos" class="btn btn-primary">
+                        Explorar Catálogo <i class="fa-solid fa-arrow-right"></i>
+                    </a>
+                    <a href="#contato" class="btn btn-secondary">
+                        Falar com Especialistas
+                    </a>
+                </div>
+
+                <div class="hero-stats">
+                    <div class="stat-item">
+                        <h4>+15k</h4>
+                        <p>Itens em Estoque</p>
+                    </div>
+                    <div class="stat-item">
+                        <h4>25</h4>
+                        <p>Anos de Tradição</p>
+                    </div>
+                    <div class="stat-item">
+                        <h4>99%</h4>
+                        <p>Clientes Satisfeitos</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="hero-visual">
+                <div class="svg-banner-box">
+                    <svg width="100%" height="100%" viewBox="0 0 500 460" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <rect width="500" height="460" rx="24" fill="url(#hero-bg-grad)"/>
+                        <defs>
+                            <linearGradient id="hero-bg-grad" x1="0" y1="0" x2="500" y2="460" gradientUnits="userSpaceOnUse">
+                                <stop stop-color="#1E1B2E"/>
+                                <stop offset="1" stop-color="#3C2A58"/>
+                            </linearGradient>
+                            <linearGradient id="spool-1" x1="0" y1="0" x2="1" y2="1">
+                                <stop stop-color="#E60067"/>
+                                <stop offset="1" stop-color="#FF2A85"/>
+                            </linearGradient>
+                            <linearGradient id="spool-2" x1="0" y1="0" x2="1" y2="1">
+                                <stop stop-color="#00B8D4"/>
+                                <stop offset="1" stop-color="#00E5FF"/>
+                            </linearGradient>
+                            <linearGradient id="spool-3" x1="0" y1="0" x2="1" y2="1">
+                                <stop stop-color="#FFB300"/>
+                                <stop offset="1" stop-color="#FFD54F"/>
+                            </linearGradient>
+                        </defs>
+                        <!-- Thread Wave Lines -->
+                        <path d="M-50 150 C 100 80, 250 220, 550 100" stroke="#E60067" stroke-width="8" stroke-linecap="round" fill="none" opacity="0.6"/>
+                        <path d="M-50 220 C 150 280, 300 120, 550 260" stroke="#00B8D4" stroke-width="6" stroke-linecap="round" fill="none" opacity="0.6"/>
+                        <path d="M-50 320 C 120 220, 350 380, 550 200" stroke="#FFB300" stroke-width="7" stroke-linecap="round" fill="none" opacity="0.6"/>
+                        
+                        <!-- Spool 1 (Magenta) -->
+                        <g transform="translate(100, 160)">
+                            <rect x="0" y="0" width="80" height="20" rx="6" fill="#FAF8FC"/>
+                            <rect x="10" y="20" width="60" height="90" fill="url(#spool-1)"/>
+                            <line x1="10" y1="35" x2="70" y2="35" stroke="#FFFFFF" stroke-opacity="0.3" stroke-width="3"/>
+                            <line x1="10" y1="55" x2="70" y2="55" stroke="#FFFFFF" stroke-opacity="0.3" stroke-width="3"/>
+                            <line x1="10" y1="75" x2="70" y2="75" stroke="#FFFFFF" stroke-opacity="0.3" stroke-width="3"/>
+                            <line x1="10" y1="95" x2="70" y2="95" stroke="#FFFFFF" stroke-opacity="0.3" stroke-width="3"/>
+                            <rect x="0" y="110" width="80" height="20" rx="6" fill="#FAF8FC"/>
+                        </g>
+
+                        <!-- Spool 2 (Turquoise) -->
+                        <g transform="translate(210, 200)">
+                            <rect x="0" y="0" width="80" height="20" rx="6" fill="#FAF8FC"/>
+                            <rect x="10" y="20" width="60" height="110" fill="url(#spool-2)"/>
+                            <line x1="10" y1="40" x2="70" y2="40" stroke="#FFFFFF" stroke-opacity="0.3" stroke-width="3"/>
+                            <line x1="10" y1="65" x2="70" y2="65" stroke="#FFFFFF" stroke-opacity="0.3" stroke-width="3"/>
+                            <line x1="10" y1="90" x2="70" y2="90" stroke="#FFFFFF" stroke-opacity="0.3" stroke-width="3"/>
+                            <rect x="0" y="130" width="80" height="20" rx="6" fill="#FAF8FC"/>
+                        </g>
+
+                        <!-- Spool 3 (Yellow) -->
+                        <g transform="translate(320, 120)">
+                            <rect x="0" y="0" width="70" height="18" rx="5" fill="#FAF8FC"/>
+                            <rect x="8" y="18" width="54" height="80" fill="url(#spool-3)"/>
+                            <line x1="8" y1="35" x2="62" y2="35" stroke="#FFFFFF" stroke-opacity="0.4" stroke-width="3"/>
+                            <line x1="8" y1="55" x2="62" y2="55" stroke="#FFFFFF" stroke-opacity="0.4" stroke-width="3"/>
+                            <line x1="8" y1="75" x2="62" y2="75" stroke="#FFFFFF" stroke-opacity="0.4" stroke-width="3"/>
+                            <rect x="0" y="98" width="70" height="18" rx="5" fill="#FAF8FC"/>
+                        </g>
+
+                        <!-- Scissors Vector -->
+                        <g transform="translate(260, 60) rotate(25)">
+                            <path d="M0,0 L60,40 M0,40 L60,0" stroke="#E2DDF0" stroke-width="8" stroke-linecap="round"/>
+                            <circle cx="-10" cy="-5" r="14" stroke="#E2DDF0" stroke-width="6" fill="none"/>
+                            <circle cx="-10" cy="45" r="14" stroke="#E2DDF0" stroke-width="6" fill="none"/>
+                        </g>
+                    </svg>
+                </div>
+                
+                <div class="floating-card floating-card-1">
+                    <div class="floating-icon">
+                        <i class="fa-solid fa-ribbon"></i>
+                    </div>
+                    <div>
+                        <h5 style="margin-bottom: 2px; font-size: 1rem;">Fitas de Cetim</h5>
+                        <p style="font-size: 0.8rem; margin: 0; color: var(--dark-body);">+120 Cores Disponíveis</p>
+                    </div>
+                </div>
+
+                <div class="floating-card floating-card-2">
+                    <div class="floating-icon">
+                        <i class="fa-solid fa-truck-fast"></i>
+                    </div>
+                    <div>
+                        <h5 style="margin-bottom: 2px; font-size: 1rem;">Envio Expresso</h5>
+                        <p style="font-size: 0.8rem; margin: 0; color: var(--dark-body);">Despacho em 24h</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="about section-padding" id="sobre">
+        <div class="container about-grid">
+            <div class="about-svg-grid">
+                <div class="about-svg-card" style="height: 200px; display: flex; align-items: center; justify-content: center; background: linear-gradient(135deg, #FFEBF3, #FFD6E7);">
+                    <svg width="120" height="120" viewBox="0 0 100 100" fill="none">
+                        <circle cx="50" cy="50" r="40" fill="#E60067" opacity="0.15"/>
+                        <circle cx="35" cy="35" r="8" fill="#E60067"/>
+                        <circle cx="65" cy="35" r="8" fill="#E60067"/>
+                        <circle cx="35" cy="65" r="8" fill="#E60067"/>
+                        <circle cx="65" cy="65" r="8" fill="#E60067"/>
+                        <rect x="20" y="20" width="60" height="60" rx="30" stroke="#E60067" stroke-width="6" fill="none"/>
+                    </svg>
+                </div>
+                <div class="about-svg-card" style="height: 200px; display: flex; align-items: center; justify-content: center; background: linear-gradient(135deg, #E0F7FA, #B2EBF2);">
+                    <svg width="120" height="120" viewBox="0 0 100 100" fill="none">
+                        <path d="M20,80 L80,20" stroke="#00B8D4" stroke-width="8" stroke-linecap="round"/>
+                        <circle cx="20" cy="80" r="10" fill="#00B8D4"/>
+                        <path d="M50,20 C70,20 80,40 80,60" stroke="#7C4DFF" stroke-width="6" fill="none" stroke-dasharray="4 4"/>
+                    </svg>
+                </div>
+                <div class="about-svg-card" style="grid-column: span 2; height: 160px; display: flex; align-items: center; justify-content: center; background: linear-gradient(135deg, #FFF8E1, #FFECB3);">
+                    <svg width="240" height="100" viewBox="0 0 240 100" fill="none">
+                        <path d="M10 50 Q 60 10, 120 50 T 230 50" stroke="#FFB300" stroke-width="8" fill="none"/>
+                        <circle cx="60" cy="30" r="12" fill="#E60067"/>
+                        <circle cx="120" cy="50" r="12" fill="#00B8D4"/>
+                        <circle cx="180" cy="30" r="12" fill="#7C4DFF"/>
+                    </svg>
+                </div>
+            </div>
+
+            <div class="about-content">
+                <div class="section-badge">Nossa História</div>
+                <h2 class="serif-title">Paixão pelo trabalho manual e precisão em cada detalhe</h2>
+                <p>A <strong>Ponto & Trama</strong> nasceu do desejo de transformar ideias em arte tangível. Há mais de duas décadas, fornecemos materiais de alta qualidade para ateliês de alta costura, artesãos independentes e entusiastas do 'faça você mesmo'.</p>
+                
+                <div class="about-features">
+                    <div class="feature-item">
+                        <div class="feature-icon"><i class="fa-solid fa-check"></i></div>
+                        <div>
+                            <h4 style="font-size: 1.1rem; margin-bottom: 4px;">Curadoria de Qualidade</h4>
+                            <p style="font-size: 0.95rem;">Trabalhamos com os melhores fabricantes nacionais e internacionais.</p>
+                        </div>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-icon"><i class="fa-solid fa-check"></i></div>
+                        <div>
+                            <h4 style="font-size: 1.1rem; margin-bottom: 4px;">Atendimento Especializado</h4>
+                            <p style="font-size: 0.95rem;">Nossa equipe entende de modelagem, costura e trabalhos manuais.</p>
+                        </div>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-icon"><i class="fa-solid fa-check"></i></div>
+                        <div>
+                            <h4 style="font-size: 1.1rem; margin-bottom: 4px;">Sustentabilidade</h4>
+                            <p style="font-size: 0.95rem;">Incentivamos e oferecemos opções de materiais reciclados e ecologicamente corretos.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <a href="#contato" class="btn btn-primary">Conheça Nossa Loja Física</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="section-padding" id="produtos">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-badge">Catálogo Em Destaque</div>
+                <h2 class="serif-title">Explore nossos aviamentos e insumos</h2>
+                <p>Encontre a combinação perfeita para enriquecer seus projetos de vestuário e decoração.</p>
+            </div>
+
+            <div class="search-container">
+                <i class="fa-solid fa-magnifying-glass search-icon"></i>
+                <input type="text" id="search-input" class="search-input" placeholder="Buscar botões, fitas, linhas, tesouras...">
+            </div>
+
+            <div class="categories-filter">
+                <button class="filter-btn active" data-filter="all">Todos os Produtos</button>
+                <button class="filter-btn" data-filter="fitas">Fitas & Rendas</button>
+                <button class="filter-btn" data-filter="botoes">Botões & Fechos</button>
+                <button class="filter-btn" data-filter="linhas">Linhas & Fios</button>
+                <button class="filter-btn" data-filter="ferramentas">Ferramentas de Corte</button>
+            </div>
+
+            <div class="products-grid" id="products-grid">
+                <!-- Produto 1 -->
+                <div class="product-card" data-category="fitas" data-title="fita de veludo dupla face fitas rendas">
+                    <div class="product-svg-header" style="background: linear-gradient(135deg, #FFEBF3, #FFD6E7);">
+                        <span class="product-tag">Mais Vendido</span>
+                        <svg width="140" height="140" viewBox="0 0 100 100" fill="none">
+                            <path d="M10,50 Q 50,10 90,50 T 10,50" fill="#E60067" opacity="0.8"/>
+                            <path d="M10,60 Q 50,20 90,60 T 10,60" fill="#FF2A85" opacity="0.9"/>
+                        </svg>
+                    </div>
+                    <div class="product-info">
+                        <span class="product-category">Fitas & Rendas</span>
+                        <h3 class="product-title">Fita de Veludo Dupla Face</h3>
+                        <p class="product-desc">Rolo com 10m de fita super macia, ideal para acabamentos sofisticados e vestidos de festa.</p>
+                        <div class="product-footer">
+                            <span class="product-price">R$ 24,90</span>
+                            <button class="add-btn" aria-label="Adicionar ao carrinho"><i class="fa-solid fa-plus"></i></button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Produto 2 -->
+                <div class="product-card" data-category="botoes" data-title="botao de nacar natural botoes fechos">
+                    <div class="product-svg-header" style="background: linear-gradient(135deg, #FFF8E1, #FFECB3);">
+                        <span class="product-tag">Importado</span>
+                        <svg width="120" height="120" viewBox="0 0 100 100" fill="none">
+                            <circle cx="50" cy="50" r="36" fill="#FFB300" opacity="0.9"/>
+                            <circle cx="50" cy="50" r="28" fill="#FFF8E1"/>
+                            <circle cx="40" cy="40" r="4" fill="#3C2A58"/>
+                            <circle cx="60" cy="40" r="4" fill="#3C2A58"/>
+                            <circle cx="40" cy="60" r="4" fill="#3C2A58"/>
+                            <circle cx="60" cy="60" r="4" fill="#3C2A58"/>
+                        </svg>
+                    </div>
+                    <div class="product-info">
+                        <span class="product-category">Botões & Fechos</span>
+                        <h3 class="product-title">Botão de Nácar Natural</h3>
+                        <p class="product-desc">Jogo com 12 unidades de botões orgânicos polidos para camisaria de alto padrão.</p>
+                        <div class="product-footer">
+                            <span class="product-price">R$ 38,50</span>
+                            <button class="add-btn" aria-label="Adicionar ao carrinho"><i class="fa-solid fa-plus"></i></button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Produto 3 -->
+                <div class="product-card" data-category="linhas" data-title="kit linhas ponto de ouro linhas fios">
+                    <div class="product-svg-header" style="background: linear-gradient(135deg, #E0F7FA, #B2EBF2);">
+                        <svg width="120" height="120" viewBox="0 0 100 100" fill="none">
+                            <rect x="30" y="15" width="40" height="10" rx="3" fill="#FAF8FC"/>
+                            <rect x="35" y="25" width="30" height="50" fill="#00B8D4"/>
+                            <line x1="35" y1="35" x2="65" y2="35" stroke="#FFFFFF" stroke-opacity="0.4" stroke-width="2"/>
+                            <line x1="35" y1="45" x2="65" y2="45" stroke="#FFFFFF" stroke-opacity="0.4" stroke-width="2"/>
+                            <line x1="35" y1="55" x2="65" y2="55" stroke="#FFFFFF" stroke-opacity="0.4" stroke-width="2"/>
+                            <rect x="30" y="75" width="40" height="10" rx="3" fill="#FAF8FC"/>
+                        </svg>
+                    </div>
+                    <div class="product-info">
+                        <span class="product-category">Linhas & Fios</span>
+                        <h3 class="product-title">Kit Linhas Ponto de Ouro</h3>
+                        <p class="product-desc">Conjunto com 10 retrós de linha 100% algodão egípcio para bordado e costura fina.</p>
+                        <div class="product-footer">
+                            <span class="product-price">R$ 52,00</span>
+                            <button class="add-btn" aria-label="Adicionar ao carrinho"><i class="fa-solid fa-plus"></i></button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Produto 4 -->
+                <div class="product-card" data-category="ferramentas" data-title="tesoura alfaiate ferramentas de corte">
+                    <div class="product-svg-header" style="background: linear-gradient(135deg, #EDE7F6, #D1C4E9);">
+                        <span class="product-tag">Aço Alemão</span>
+                        <svg width="130" height="130" viewBox="0 0 100 100" fill="none">
+                            <path d="M20,20 L80,80 M20,80 L80,20" stroke="#7C4DFF" stroke-width="8" stroke-linecap="round"/>
+                            <circle cx="20" cy="20" r="10" stroke="#7C4DFF" stroke-width="5" fill="none"/>
+                            <circle cx="20" cy="80" r="10" stroke="#7C4DFF" stroke-width="5" fill="none"/>
+                        </svg>
+                    </div>
+                    <div class="product-info">
+                        <span class="product-category">Ferramentas de Corte</span>
+                        <h3 class="product-title">Tesoura Alfaiate 9"</h3>
+                        <p class="product-desc">Aço forjado de alta precisão com cabo ergonômico para corte perfeito em tecidos pesados.</p>
+                        <div class="product-footer">
+                            <span class="product-price">R$ 119,90</span>
+                            <button class="add-btn" aria-label="Adicionar ao carrinho"><i class="fa-solid fa-plus"></i></button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Produto 5 -->
+                <div class="product-card" data-category="fitas" data-title="renda guipir floral fitas rendas">
+                    <div class="product-svg-header" style="background: linear-gradient(135deg, #F3E5F5, #E1BEE7);">
+                        <svg width="130" height="130" viewBox="0 0 100 100" fill="none">
+                            <circle cx="50" cy="50" r="15" fill="#E60067"/>
+                            <circle cx="50" cy="25" r="12" fill="#E60067" opacity="0.6"/>
+                            <circle cx="50" cy="75" r="12" fill="#E60067" opacity="0.6"/>
+                            <circle cx="25" cy="50" r="12" fill="#E60067" opacity="0.6"/>
+                            <circle cx="75" cy="50" r="12" fill="#E60067" opacity="0.6"/>
+                        </svg>
+                    </div>
+                    <div class="product-info">
+                        <span class="product-category">Fitas & Rendas</span>
+                        <h3 class="product-title">Renda Guipir Floral 5cm</h3>
+                        <p class="product-desc">Metro de renda Guipir trabalhada em relevo, perfeita para aplicação em vestidos e barras.</p>
+                        <div class="product-footer">
+                            <span class="product-price">R$ 18,90</span>
+                            <button class="add-btn" aria-label="Adicionar ao carrinho"><i class="fa-solid fa-plus"></i></button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Produto 6 -->
+                <div class="product-card" data-category="botoes" data-title="ziper invisivel reforçado botoes fechos">
+                    <div class="product-svg-header" style="background: linear-gradient(135deg, #E8F5E9, #C8E6C9);">
+                        <svg width="130" height="130" viewBox="0 0 100 100" fill="none">
+                            <line x1="50" y1="10" x2="50" y2="90" stroke="#2E7D32" stroke-width="6" stroke-dasharray="6 4"/>
+                            <rect x="42" y="40" width="16" height="24" rx="4" fill="#1B5E20"/>
+                            <circle cx="50" cy="52" r="3" fill="#FFFFFF"/>
+                        </svg>
+                    </div>
+                    <div class="product-info">
+                        <span class="product-category">Botões & Fechos</span>
+                        <h3 class="product-title">Zíper Invisível Reforçado</h3>
+                        <p class="product-desc">Pacote com 5 unidades de 50cm em diversas cores com cursor deslizante ultra macio.</p>
+                        <div class="product-footer">
+                            <span class="product-price">R$ 16,00</span>
+                            <button class="add-btn" aria-label="Adicionar ao carrinho"><i class="fa-solid fa-plus"></i></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="services section-padding" id="diferenciais">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-badge" style="background: rgba(255, 255, 255, 0.1); color: var(--accent-turquoise);">Nossos Diferenciais</div>
+                <h2 class="serif-title">Por que escolher a Ponto & Trama?</h2>
+                <p>Mais do que uma loja de armarinho, somos parceiros criativos no desenvolvimento dos seus projetos.</p>
+            </div>
+
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fa-solid fa-palette"></i>
+                    </div>
+                    <h3 class="service-title">Consultoria de Cores</h3>
+                    <p>Ajudamos você a combinar tonalidades, texturas e materiais para garantir a harmonia perfeita da sua peça final.</p>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fa-solid fa-graduation-cap"></i>
+                    </div>
+                    <h3 class="service-title">Cursos & Workshops</h3>
+                    <p>Oferecemos aulas presenciais e online de modelagem, bordado livre e técnicas avançadas de costura criativa.</p>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fa-solid fa-truck-ramp-box"></i>
+                    </div>
+                    <h3 class="service-title">Atacado & Varejo</h3>
+                    <p>Condições especiais para confecções, estilistas e ateliês com suporte a pedidos em grande escala.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section-padding" id="dicas">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-badge">Blog & Inspiração</div>
+                <h2 class="serif-title">Dicas de costura e tendências</h2>
+                <p>Aprenda técnicas valiosas e mantenha-se atualizado com o universo da moda e do artesanato.</p>
+            </div>
+
+            <div class="blog-grid">
+                <article class="blog-card">
+                    <div class="blog-svg-wrapper">
+                        <svg width="100%" height="100%" viewBox="0 0 300 180" fill="none">
+                            <rect width="300" height="180" fill="#2A1B40"/>
+                            <path d="M50 120 C 100 40, 200 140, 250 60" stroke="#00B8D4" stroke-width="5" stroke-linecap="round" fill="none"/>
+                            <circle cx="150" cy="90" r="25" fill="#E60067" opacity="0.8"/>
+                        </svg>
+                    </div>
+                    <div class="blog-content">
+                        <span class="blog-date">12 de Outubro, 2026</span>
+                        <h3 class="blog-title">5 Tipos de agulhas essenciais para cada tecido</h3>
+                        <p class="blog-excerpt">Saiba como escolher a numeração e a ponta correta para evitar danificar tecidos delicados durante a costura.</p>
+                        <span class="read-more">Ler artigo completo <i class="fa-solid fa-chevron-right"></i></span>
+                    </div>
+                </article>
+
+                <article class="blog-card">
+                    <div class="blog-svg-wrapper">
+                        <svg width="100%" height="100%" viewBox="0 0 300 180" fill="none">
+                            <rect width="300" height="180" fill="#1B2A40"/>
+                            <circle cx="100" cy="90" r="35" fill="#FFB300" opacity="0.8"/>
+                            <circle cx="180" cy="90" r="35" fill="#7C4DFF" opacity="0.8"/>
+                        </svg>
+                    </div>
+                    <div class="blog-content">
+                        <span class="blog-date">28 de Setembro, 2026</span>
+                        <h3 class="blog-title">Tendências de aviamentos para a Próxima Estação</h3>
+                        <p class="blog-excerpt">Fitas largas, botões metálicos vintage e passamanarias ganham destaque nas passarelas internacionais.</p>
+                        <span class="read-more">Ler artigo completo <i class="fa-solid fa-chevron-right"></i></span>
+                    </div>
+                </article>
+
+                <article class="blog-card">
+                    <div class="blog-svg-wrapper">
+                        <svg width="100%" height="100%" viewBox="0 0 300 180" fill="none">
+                            <rect width="300" height="180" fill="#381B2A"/>
+                            <rect x="60" y="40" width="180" height="100" rx="12" fill="#E60067" opacity="0.3"/>
+                            <path d="M80 90 L220 90" stroke="#FFFFFF" stroke-width="4" stroke-dasharray="8 8"/>
+                        </svg>
+                    </div>
+                    <div class="blog-content">
+                        <span class="blog-date">15 de Setembro, 2026</span>
+                        <h3 class="blog-title">Como organizar suas linhas e fitas com facilidade</h3>
+                        <p class="blog-excerpt">Dicas práticas para otimizar o espaço do seu ateliê e conservar a qualidade dos seus materiais por mais tempo.</p>
+                        <span class="read-more">Ler artigo completo <i class="fa-solid fa-chevron-right"></i></span>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <section class="contact section-padding" id="contato">
+        <div class="container">
+            <div class="contact-box">
+                <div class="contact-grid">
+                    <div>
+                        <div class="section-badge">Atendimento</div>
+                        <h2 class="serif-title" style="font-size: 2rem; margin-bottom: 16px;">Entre em contato ou faça um orçamento</h2>
+                        <p>Dúvidas sobre produtos, disponibilidade em estoque ou pedidos corporativos? Envie-nos uma mensagem e responderemos prontamente.</p>
+
+                        <div class="contact-details">
+                            <div class="contact-detail-item">
+                                <div class="contact-detail-icon"><i class="fa-solid fa-location-dot"></i></div>
+                                <div>
+                                    <h5 style="font-size: 1rem; margin-bottom: 2px;">Nosso Ateliê & Loja</h5>
+                                    <p style="font-size: 0.95rem; color: var(--dark-body);">Av. das Rendas, 1024 - Bairro das Artes, São Paulo - SP</p>
+                                </div>
+                            </div>
+
+                            <div class="contact-detail-item">
+                                <div class="contact-detail-icon" style="background-color: var(--accent-turquoise);"><i class="fa-solid fa-phone"></i></div>
+                                <div>
+                                    <h5 style="font-size: 1rem; margin-bottom: 2px;">Telefone / WhatsApp</h5>
+                                    <p style="font-size: 0.95rem; color: var(--dark-body);">(11) 3456-7890 / (11) 98765-4321</p>
+                                </div>
+                            </div>
+
+                            <div class="contact-detail-item">
+                                <div class="contact-detail-icon" style="background-color: var(--accent-yellow); color: var(--dark-heading);"><i class="fa-solid fa-envelope"></i></div>
+                                <div>
+                                    <h5 style="font-size: 1rem; margin-bottom: 2px;">E-mail de Contato</h5>
+                                    <p style="font-size: 0.95rem; color: var(--dark-body);">atendimento@pontoetrama.com.br</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <form class="contact-form" id="contact-form">
+                        <h3 style="margin-bottom: 24px; font-size: 1.5rem;">Envie sua Mensagem</h3>
+                        
+                        <div class="form-group">
+                            <label for="name">Nome Completo</label>
+                            <input type="text" id="name" class="form-control" placeholder="Digite seu nome" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="email">E-mail</label>
+                            <input type="email" id="email" class="form-control" placeholder="seuemail@exemplo.com" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="subject">Assunto</label>
+                            <select id="subject" class="form-control" required>
+                                <option value="" disabled selected>Selecione o assunto</option>
+                                <option value="orcamento">Solicitação de Orçamento</option>
+                                <option value="duvida">Dúvidas sobre Produtos</option>
+                                <option value="cursos">Informações sobre Cursos</option>
+                                <option value="outro">Outro assunto</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="message">Mensagem</label>
+                            <textarea id="message" class="form-control" placeholder="Descreva o que você precisa..." required></textarea>
+                        </div>
+
+                        <button type="submit" class="btn btn-primary" style="width: 100%;">
+                            Enviar Mensagem <i class="fa-solid fa-paper-plane"></i>
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-about">
+                    <a href="#" class="logo">
+                        <div class="logo-icon">
+                            <i class="fa-solid fa-scissors"></i>
+                        </div>
+                        Ponto <span>& Trama</span>
+                    </a>
+                    <p>Sua loja de referência em aviamentos, armarinho e materiais de costura fina. Qualidade, inspiração e cores vibrantes para transformar sua arte.</p>
+                    <div class="social-links">
+                        <a href="#" class="social-link" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                        <a href="#" class="social-link" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+                        <a href="#" class="social-link" aria-label="Pinterest"><i class="fa-brands fa-pinterest-p"></i></a>
+                        <a href="#" class="social-link" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+                    </div>
+                </div>
+
+                <div>
+                    <h4 class="footer-title">Links Rápidos</h4>
+                    <ul class="footer-links">
+                        <li><a href="#inicio">Início</a></li>
+                        <li><a href="#sobre">Sobre Nós</a></li>
+                        <li><a href="#produtos">Produtos</a></li>
+                        <li><a href="#diferenciais">Diferenciais</a></li>
+                        <li><a href="#dicas">Dicas & Blog</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="footer-title">Categorias</h4>
+                    <ul class="footer-links">
+                        <li><a href="#produtos">Fitas & Rendas</a></li>
+                        <li><a href="#produtos">Botões & Fechos</a></li>
+                        <li><a href="#produtos">Linhas & Fios</a></li>
+                        <li><a href="#produtos">Tesouras & Corte</a></li>
+                        <li><a href="#produtos">Acessórios</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="footer-title">Horário de Funcionamento</h4>
+                    <p style="margin-bottom: 8px;"><strong style="color: var(--white);">Segunda a Sexta:</strong> 08h00 às 18h30</p>
+                    <p style="margin-bottom: 8px;"><strong style="color: var(--white);">Sábado:</strong> 09h00 às 14h00</p>
+                    <p style="margin-bottom: 8px;"><strong style="color: var(--white);">Domingo e Feriados:</strong> Fechado</p>
+                    <p style="margin-top: 16px; color: var(--accent-turquoise); font-weight: 600;">
+                        <i class="fa-solid fa-store"></i> Loja física com estacionamento gratuito
+                    </p>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2026 Ponto & Trama Aviamentos. Todos os direitos reservados.</p>
+                <p>Desenvolvido com excelência técnica para mentes criativas.</p>
+            </div>
+        </div>
+    </footer>
+
+    <div class="modal-overlay" id="modal-overlay">
+        <div class="modal-content">
+            <div class="modal-icon">
+                <i class="fa-solid fa-check"></i>
+            </div>
+            <h3 style="font-size: 1.75rem; margin-bottom: 12px;">Mensagem Enviada!</h3>
+            <p style="margin-bottom: 24px; color: var(--dark-body);">Agradecemos o seu contato. Nossa equipe retornará sua mensagem em até 24 horas úteis.</p>
+            <button class="btn btn-primary" id="modal-close">Fechar</button>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Header ao rolar
+            const header = document.getElementById('header');
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 50) {
+                    header.classList.add('scrolled');
+                } else {
+                    header.classList.remove('scrolled');
+                }
+            });
+
+            // Menu Mobile Toggle
+            const mobileToggle = document.getElementById('mobile-toggle');
+            const navMenu = document.getElementById('nav-menu');
+            const navLinks = document.querySelectorAll('.nav-link');
+
+            mobileToggle.addEventListener('click', () => {
+                navMenu.classList.toggle('active');
+                const icon = mobileToggle.querySelector('i');
+                if (navMenu.classList.contains('active')) {
+                    icon.classList.remove('fa-bars');
+                    icon.classList.add('fa-xmark');
+                } else {
+                    icon.classList.remove('fa-xmark');
+                    icon.classList.add('fa-bars');
+                }
+            });
+
+            // Fechar menu ao clicar num link
+            navLinks.forEach(link => {
+                link.addEventListener('click', () => {
+                    navMenu.classList.remove('active');
+                    const icon = mobileToggle.querySelector('i');
+                    icon.classList.remove('fa-xmark');
+                    icon.classList.add('fa-bars');
+                });
+            });
+
+            // Filtro e Pesquisa de Produtos
+            const filterBtns = document.querySelectorAll('.filter-btn');
+            const productCards = document.querySelectorAll('.product-card');
+            const searchInput = document.getElementById('search-input');
+
+            let currentFilter = 'all';
+
+            function filterProducts() {
+                const searchTerm = searchInput.value.toLowerCase().trim();
+
+                productCards.forEach(card => {
+                    const category = card.getAttribute('data-category');
+                    const searchData = card.getAttribute('data-title').toLowerCase();
+
+                    const matchesCategory = (currentFilter === 'all' || category === currentFilter);
+                    const matchesSearch = searchData.includes(searchTerm);
+
+                    if (matchesCategory && matchesSearch) {
+                        card.style.display = 'flex';
+                        setTimeout(() => {
+                            card.style.opacity = '1';
+                            card.style.transform = 'translateY(0)';
+                        }, 50);
+                    } else {
+                        card.style.opacity = '0';
+                        card.style.transform = 'translateY(20px)';
+                        setTimeout(() => {
+                            card.style.display = 'none';
+                        }, 250);
+                    }
+                });
+            }
+
+            filterBtns.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    filterBtns.forEach(b => b.classList.remove('active'));
+                    btn.classList.add('active');
+                    currentFilter = btn.getAttribute('data-filter');
+                    filterProducts();
+                });
+            });
+
+            searchInput.addEventListener('input', filterProducts);
+
+            // Form Submit e Modal
+            const contactForm = document.getElementById('contact-form');
+            const modalOverlay = document.getElementById('modal-overlay');
+            const modalClose = document.getElementById('modal-close');
+
+            contactForm.addEventListener('submit', (e) => {
+                e.preventDefault();
+                modalOverlay.classList.add('active');
+                contactForm.reset();
+            });
+
+            modalClose.addEventListener('click', () => {
+                modalOverlay.classList.remove('active');
+            });
+
+            modalOverlay.addEventListener('click', (e) => {
+                if (e.target === modalOverlay) {
+                    modalOverlay.classList.remove('active');
+                }
+            });
+
+            // Destacar link da navegação conforme rolagem
+            const sections = document.querySelectorAll('section');
+            window.addEventListener('scroll', () => {
+                let current = '';
+                sections.forEach(section => {
+                    const sectionTop = section.offsetTop;
+                    if (window.pageYOffset >= (sectionTop - 120)) {
+                        current = section.getAttribute('id');
+                    }
+                });
+
+                navLinks.forEach(link => {
+                    link.classList.remove('active');
+                    if (link.getAttribute('href').substring(1) === current) {
+                        link.classList.add('active');
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
